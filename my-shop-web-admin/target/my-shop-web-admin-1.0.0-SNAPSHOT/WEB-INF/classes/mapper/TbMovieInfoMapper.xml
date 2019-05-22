@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.funtl.my.shop.web.admin.dao.TbMovieInfoDao">
+  <resultMap id="BaseResultMap" type="com.funtl.my.shop.domain.TbMovieInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="show_time" jdbcType="VARCHAR" property="showTime" />
+    <result column="catelog_id" jdbcType="BIGINT" property="catelogId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="introduce" jdbcType="VARCHAR" property="introduce" />
+    <result column="pic" jdbcType="VARCHAR" property="pic" />
+    <result column="price" jdbcType="INTEGER" property="price" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, show_time, catelog_id, `name`, introduce, pic, price,url
+  </sql>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tb_movie_info
+    order by str_to_date(show_time,'%Y-%m-%d') desc
+  </select>
+  <select id="page" resultType="TbMovieInfo" parameterType="java.util.Map">
+    SELECT
+    <include refid="Base_Column_List"></include>
+    FROM
+    tb_movie_info AS a
+    <where>
+      <if test="pageParams.name !=null and pageParams.name !=''">
+        AND a.name LIKE CONCAT('%',#{pageParams.name},'%')
+      </if>
+    </where>
+    order by str_to_date(a.show_time,'%Y-%m-%d') desc
+    LIMIT #{start}, #{length}
+  </select>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_movie_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectByCatelogId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tb_movie_info
+    where catelog_id = #{catelogId,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tb_movie_info
+    where name LIKE CONCAT('%',#{name},'%')
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from tb_movie_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+
+  <insert id="insert" parameterType="com.funtl.my.shop.domain.TbMovieInfo">
+    insert into tb_movie_info (id, show_time, catelog_id, 
+      `name`, introduce, pic, 
+      price,url)
+    values (#{id,jdbcType=BIGINT}, #{showTime,jdbcType=VARCHAR}, #{catelogId,jdbcType=BIGINT},
+      #{name,jdbcType=VARCHAR}, #{introduce,jdbcType=VARCHAR}, #{pic,jdbcType=VARCHAR}, 
+      #{price,jdbcType=INTEGER},#{url,jdbcType=VARCHAR})
+  </insert>
+
+  <insert id="insertSelective" parameterType="com.funtl.my.shop.domain.TbMovieInfo">
+    insert into tb_movie_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="showTime != null">
+        show_time,
+      </if>
+      <if test="catelogId != null">
+        catelog_id,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="introduce != null">
+        introduce,
+      </if>
+      <if test="pic != null">
+        pic,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="showTime != null">
+        #{showTime,jdbcType=VARCHAR},
+      </if>
+      <if test="catelogId != null">
+        #{catelogId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="introduce != null">
+        #{introduce,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null">
+        #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.funtl.my.shop.domain.TbMovieInfo">
+    update tb_movie_info
+    <set>
+      <if test="showTime != null">
+        show_time = #{showTime,jdbcType=VARCHAR},
+      </if>
+      <if test="catelogId != null">
+        catelog_id = #{catelogId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="introduce != null">
+        introduce = #{introduce,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null">
+        pic = #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=INTEGER},
+      </if>
+      <if test="url != null">
+        pic = #{url,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <update id="updateByPrimaryKey" parameterType="com.funtl.my.shop.domain.TbMovieInfo">
+    update tb_movie_info
+    set show_time = #{showTime,jdbcType=VARCHAR},
+      catelog_id = #{catelogId,jdbcType=BIGINT},
+      `name` = #{name,jdbcType=VARCHAR},
+      introduce = #{introduce,jdbcType=VARCHAR},
+      pic = #{pic,jdbcType=VARCHAR},
+      price = #{price,jdbcType=INTEGER},
+      url = #{url,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="count" resultType="java.lang.Integer" parameterType="TbMovieInfo">
+    SELECT COUNT(*) FROM tb_movie_info AS a
+    <where>
+      <if test="name !=null and name !=''">
+        AND a.name LIKE CONCAT('%',#{name},'%')
+      </if>
+    </where>
+  </select>
+</mapper>

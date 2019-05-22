@@ -6,7 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="065d977d-9a82-4e7b-b1e4-56aad34f0ba7" name="Default Changelist" comment="" />
+    <list default="true" id="065d977d-9a82-4e7b-b1e4-56aad34f0ba7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/my-shop-web-admin/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -27,8 +29,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/my-shop-web-admin/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+            <state relative-caret-position="234">
+              <caret line="22" column="32" lean-forward="true" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -277,7 +279,7 @@
       <workItem from="1557208821053" duration="2725000" />
       <workItem from="1557211589542" duration="8447000" />
       <workItem from="1558505186627" duration="1293000" />
-      <workItem from="1558509343566" duration="3016000" />
+      <workItem from="1558509343566" duration="3849000" />
     </task>
     <task id="LOCAL-00001" summary="myshop">
       <created>1558514005235</created>
@@ -290,7 +292,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19014000" />
+    <option name="totallyTimeSpent" value="19847000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
@@ -317,7 +319,7 @@
       <window_info anchor="bottom" id="Spring" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="12" side_tool="true" visible="true" weight="0.32879046" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" weight="0.32879046" />
       <window_info anchor="bottom" id="Problems" order="13" />
       <window_info anchor="bottom" id="Java Enterprise" order="14" />
       <window_info anchor="bottom" id="Database Changes" order="15" />
@@ -515,8 +517,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/my-shop-web-admin/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+        <state relative-caret-position="234">
+          <caret line="22" column="32" lean-forward="true" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
         </state>
       </provider>
     </entry>

@@ -129,7 +129,6 @@ public class BeanValidator {
         } catch (ConstraintViolationException ex) {
             List<String> list = extractMessage(ex);
             list.add(0, "数据验证失败：");
-
             // 封装错误消息为字符串
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < list.size(); i++) {
@@ -140,7 +139,6 @@ public class BeanValidator {
                     sb.append(exMsg).append(list.size() > 1 ? "<br/>" : "");
                 }
             }
-
             return sb.toString();
         }
 

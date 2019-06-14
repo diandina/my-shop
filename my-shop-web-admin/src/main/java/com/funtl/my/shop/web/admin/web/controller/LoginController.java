@@ -64,7 +64,6 @@ public class LoginController {
         }
         //登录成功
         else{
-            System.out.println(tbUser.isAdmin());
             if(tbUser.isAdmin()){
                 if(isRemember){
                     CookieUtils.setCookie(httpServletRequest,httpServletResponse,COOKIE_NAME_USER_INFO,String.format("%s:%s",email,password),7*24*60*60);

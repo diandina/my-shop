@@ -75,11 +75,9 @@ public abstract class AbstractBaseController<T extends BaseEntity,S extends Base
         String strDraw=request.getParameter("draw");
         String strStart=request.getParameter("start");
         String strLength=request.getParameter("length");
-
         int draw=strDraw==null?0:Integer.parseInt(strDraw);
         int start=strStart==null?0:Integer.parseInt(strStart);
         int length=strLength==null?0:Integer.parseInt(strLength);
-
         //封装Datatables需要的结果
         PageInfo<T> pageInfo = service.page(start,length,draw,entity);
         return pageInfo;

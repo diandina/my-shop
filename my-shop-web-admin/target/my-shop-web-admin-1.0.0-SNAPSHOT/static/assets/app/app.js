@@ -131,17 +131,14 @@ var App=function(){
                 _idArray.push(_id);
             }
         });
-
         //判断用户是否选择了数据项
         if(_idArray.length===0){
             $("#modal-message").html("您还没有选择任何数据项，请至少选择一项");
         }else{
             $("#modal-message").html("您确定删除数据项吗？");
         }
-
         //点击删除按钮时弹出模态框
         $("#modal-default").modal("show");
-
         //如果用户选择了数据项则调用删除方法
         $("#btnModalOk").bind("click",function () {
             del();
@@ -199,7 +196,7 @@ var App=function(){
     //初始化DataTables
     var handlerInitDataTables=function (url,columns) {
         var _dataTable = $('#dataTable').DataTable({
-            "paging":true,
+            "paging":true,value
             "info":true,
             "lengthChange":false,
             "ordering":false,

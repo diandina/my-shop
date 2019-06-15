@@ -193,11 +193,8 @@
         var username = $("#username").val();
         var phone = $("#phone").val();
         var email = $("#email").val();
-
         var param = {
-            "username": username,
-            "phone": phone,
-            "email": email
+            "username": username, "phone": phone, "email": email
         };
         _dataTable.settings()[0].ajax.data = param;
         _dataTable.ajax.reload();
